@@ -1,12 +1,10 @@
 <html><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>FYP</title>
-<link rel="stylesheet" href="css/w3.css">
-<link rel="stylesheet" href="css/w3.css">
-<link rel="stylesheet" href="css/w3-theme-black.css">
+<link rel="stylesheet" href="static/w3.css">
+<link rel="stylesheet" href="static/w3-theme-black.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
-
-
 
 <body id = "totop">
 
@@ -28,8 +26,24 @@
  </div>
 </div>
 
+<!-- End Navbar -->
+
 <style>
+
 body {font-family: "Poppins", sans-serif}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+label,input{
+    display: inline-block;
+    vertical-align: middle;
+}
+
 
 .center-justified {
   text-align: justify;
@@ -49,7 +63,9 @@ body {font-family: "Poppins", sans-serif}
 }
 </style>
 
-<!-- End Navbar -->
+<!-- Start Script -->
+
+
 
 
 <!-- Title -->
@@ -69,13 +85,98 @@ body {font-family: "Poppins", sans-serif}
 <!-- Start Border 1 -->
 
 <center>
-<h1 style="font-size:20px;"><b> Text</b></h1> 
+<h1 style="font-size:20px;"><b> Text1</b></h1> 
 <hr style="width:165px;border:2px solid rgb(255, 174, 54)">
 <div class="center-justified"> 
+
+<label for = "f1"> <input type="checkbox" name="model" /> ann </label>
+<label for = "f2"> <input type="checkbox" name="model" /> anserini </label>
+<label for = "f3"> <input type="checkbox" name="model" /> rrf </label>
+<label for = "f4"> <input type="checkbox" name="model" /> bayesian </label>
+<label for = "f5"> <input type="checkbox" name="model" /> bert </label>
+<label for = "f6"> <input type="checkbox" name="model" /> bert-base </label>
+<label for = "f7"> <input type="checkbox" name="model" /> bm </label>
+
+<br>
+
+<label for = "f8"> <input type="checkbox" name="model" /> baseline </label>
+<label for = "f9"> <input type="checkbox" name="model" /> borda </label>
+<label for = "f10"> <input type="checkbox" name="model" /> cal </label>
+<label for = "f11"> <input type="checkbox" name="model" /> classifier </label>
+<label for = "f12"> <input type="checkbox" name="model" /> dense </label>
+<label for = "f13"> <input type="checkbox" name="model" /> dfo </label>
+<label for = "f14"> <input type="checkbox" name="model" /> dfr </label>
+
+
+<br>
+
+<label for = "f15"> <input type="checkbox" name="model" /> dirichlet </label>
+<label for = "f16"> <input type="checkbox" name="model" /> dph </label>
+<label for = "f17"> <input type="checkbox" name="model" /> electra </label>
+<label for = "f18"> <input type="checkbox" name="model" /> ensemble </label>
+<label for = "f19"> <input type="checkbox" name="model" /> f2exp </label>
+<label for = "f20"> <input type="checkbox" name="model" /> fusion </label>
+<label for = "f21"> <input type="checkbox" name="model" /> hybrid </label>
+
+<br>
+
+<label for = "f22"> <input type="checkbox" name="model" /> idf </label>
+<label for = "f23"> <input type="checkbox" name="model" /> indri </label>
+<label for = "f24"> <input type="checkbox" name="model" /> interpolation </label>
+<label for = "f25"> <input type="checkbox" name="model" /> lambdamart </label>
+<label for = "f26"> <input type="checkbox" name="model" /> lambdarank </label>
+<label for = "f27"> <input type="checkbox" name="model" /> lda </label>
+<label for = "f28"> <input type="checkbox" name="model" /> learning-to-rank </label>
+
+<br>
+
+<label for = "f29"> <input type="checkbox" name="model" /> lnu.ltu </label>
+<label for = "f30"> <input type="checkbox" name="model" /> lucene </label>
+<label for = "f31"> <input type="checkbox" name="model" /> networks </label>
+<label for = "f32"> <input type="checkbox" name="model" /> nogueira </label>
+<label for = "f33"> <input type="checkbox" name="model" /> non-stopwords </label>
+<label for = "f34"> <input type="checkbox" name="model" /> nonrel </label>
+<label for = "f35"> <input type="checkbox" name="model" /> normalization </label>
+
+<br>
+
+<label for = "f36"> <input type="checkbox" name="model" /> pointwise </label>
+<label for = "f37"> <input type="checkbox" name="model" /> ponte </label>
+<label for = "f38"> <input type="checkbox" name="model" /> pool rank </label>
+<label for = "f39"> <input type="checkbox" name="model" /> prf </label>
+<label for = "f40"> <input type="checkbox" name="model" /> ranking </label>
+<label for = "f41"> <input type="checkbox" name="model" /> re-ranking </label>
+<label for = "f42"> <input type="checkbox" name="model" /> rrf.1 </label>
+
+<br>
+
+<label for = "f43"> <input type="checkbox" name="model" /> scibert </label>
+<label for = "f44"> <input type="checkbox" name="model" /> scispacy </label>
+<label for = "f45"> <input type="checkbox" name="model" /> sofiaml </label>
+<label for = "f46"> <input type="checkbox" name="model" /> softmax </label>
+<label for = "f47"> <input type="checkbox" name="model" /> reciprocal-rank </label>
+<label for = "f48"> <input type="checkbox" name="model" /> regression </label>
+<label for = "f49"> <input type="checkbox" name="model" /> tf </label>
+
+<br>
+
+<label for = "f50"> <input type="checkbox" name="model" /> tf-ranking </label>
+<label for = "f51"> <input type="checkbox" name="model" /> tf-idf </label>
+<label for = "f52"> <input type="checkbox" name="model" /> top-k </label>
+<label for = "f53"> <input type="checkbox" name="model" /> udel </label>
+<label for = "f54"> <input type="checkbox" name="model" /> vectors </label>
+<label for = "f55"> <input type="checkbox" name="model" /> weights </label>
+<label for = "f56"> <input type="checkbox" name="model" /> Score </label>
+
+
+<p id="demo">result</p>
 
 
 <br> 
 <br>
+
+<button id="btn">Get result</button>
+
 
 </center>
 
@@ -86,9 +187,12 @@ body {font-family: "Poppins", sans-serif}
 <hr style="width:100%;border:7px solid rgb(255, 174, 74)">
 
 <center>
-<h1 style="font-size:20px;"><b> Text</b></h1> 
+<h1 style="font-size:20px;"><b>Performance</b></h1> 
 <hr style="width:165px;border:2px solid rgb(255, 174, 54)">
 <div class="center-justified"> 
+
+
+<img src= "Performance_.png" class = "center">
 
 
 <br> 
@@ -103,9 +207,11 @@ body {font-family: "Poppins", sans-serif}
 <hr style="width:100%;border:7px solid rgb(255, 174, 74)">
 
 <center>
-<h1 style="font-size:20px;"><b> Text</b></h1> 
+<h1 style="font-size:20px;"><b>Weight Importance</b></h1> 
 <hr style="width:165px;border:2px solid rgb(255, 174, 54)">
 <div class="center-justified"> 
+
+<img src= "weight_importance.png" class = "center">
 
 <br>
 <br>
@@ -119,8 +225,10 @@ body {font-family: "Poppins", sans-serif}
 <hr style="width:100%;border:7px solid rgb(255, 174, 74)">
 
 <center>
-<h1 style="font-size:20px;"><b> Text</b></h1> 
+<h1 style="font-size:20px;"><b>ROC AUC</b></h1> 
 <hr style="width:165px;border:2px solid rgb(255, 174, 54)">
+
+<img src= "roc_auc_rf.png" class = "center">
 
 <br>
 <br>
@@ -143,6 +251,43 @@ body {font-family: "Poppins", sans-serif}
 	<a href="#totop" class="w3-button w3-black w3-padding-large w3-margin-bottom">Go back to top</a>
 </footer>
 </center>
+
+<script>
+
+function getSelectedCheckboxValues() {
+    const boxes = document.querySelectorAll(`input[name="model"]`);
+    let values = [];
+    
+    for (i = 0 ; boxes.length > i ; i++) {
+    	if (boxes[i].checked == true) {
+      	values.push(1);
+      } else {
+      	values.push(0);
+      }
+    }
+
+    document.getElementById("demo").innerHTML = values;
+    
+    return values
+}
+
+function getResult(values) {
+	$.ajax({
+		url: "{{url_for('predict')}}",
+		type: "POST",
+		data: {data : values}
+		})
+		.done(function (result) {document.getElementById("demo").innerHTML = result});
+}
+
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', (event) => {
+    //getResult(getSelectedCheckboxValues());
+	getSelectedCheckboxValues();
+});
+
+
+</script>
 
 
 </body></html>
