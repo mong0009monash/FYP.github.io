@@ -7,4 +7,5 @@ column_len = 55
 column_range = range(column_len)
 
 x = [[randint(0,1) for x in column_range]]
-clf.predict(x)
+print(len(x[0]))
+print(clf.predict(x))
