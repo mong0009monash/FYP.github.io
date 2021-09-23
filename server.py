@@ -15,29 +15,23 @@ def index():
 @app.route("/predict", methods = ["POST","GET"])
 def predict():
     if request.method == 'POST':
-        lst = processList(getChecks())
+        lst = getChecks()
         res = model.predict([lst])[0]
         return render_template('index.html', result = res)
     else:
         return render_template('index.html')
     
-
-def processList(lst):
-    new_lst = []
-    for i in lst:
-        if i == None:
-            new_lst.append(0)
-        else:
-            new_lst.append(1)
-    
-    return new_lst
-
 def getChecks():
     prefix = "model"
     lst = []
     for i in range(1,num_checkbox+1):
         pos = prefix + str(i)
-        lst.append(request.form.get(pos))
+        if pos in request.form:
+            lst.append(1)
+        else:
+            lst.append(0)
+    
+    print(lst)
     
     return lst
 
