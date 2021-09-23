@@ -6,34 +6,33 @@
 
 <link rel= "stylesheet" type= "text/css" href= {{url_for('static',filename='styles/w3-theme-black.css')}}>
 
-
 </head>
-
-<body id = "totop">
-
-<!-- Start Navbar -->
-<div class="w3-top">
- <div class="w3-bar w3-theme-d2 w3-left-align">
-  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onClick="openNav()"><i class="fa fa-bars"></i></a>
-  <a href="#" class="w3-bar-item w3-button w3-black w3-hover-white"><i class="fa fa-home w3-margin-right"></i> HOME </a>
-  <a href="#button1" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Button 1</a>
-  <a href="#button2" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Button 2</a>
-  <div class="w3-dropdown-hover w3-hide-small">
-  <button class="w3-button w3-hover-white" title="Notifications">Drop bar 1<i class="fa fa-caret-down"></i></button> 
-  <div class="w3-dropdown-content w3-card-4 w3-bar-block">
-		<a href="#menu1" class="w3-bar-item w3-button w3-black w3-hover-white">Bar 1</a>
-		<a href="#menu2" class="w3-bar-item w3-button w3-black w3-hover-white">Bar 2</a>
-	</div>
-	</div>
-  <a href="#button3" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Button 3</a>
- </div>
-</div>
-
-<!-- End Navbar -->
 
 <style>
 
+
 body {font-family: "Poppins", sans-serif}
+
+.container {
+        display: flex;
+		text-align: center;
+        align-items: center;
+        justify-content: center;
+      }
+
+.img { 
+		height: 400px;
+	    width : 500px;
+	}
+
+.text {
+	text-align: left;  
+	width:100%; 
+	word-wrap:break-all;
+	font-size: 20px;
+	white-space: pre-wrap;
+
+}
 
 .center {
   display: block;
@@ -66,19 +65,17 @@ label,input{
 }
 </style>
 
-<!-- Start Script -->
 
 
 
 
 <!-- Title -->
-<center><big>
-<br id="totop">
-</big><div style="background-color:rgb(255, 174, 74);"><big>
+<center>
+<div style="background-color:rgb(255, 174, 74);" id="totop"><big>
 <br>
 <br>
 <br>
-<h1 style="font-size:55px;"><b>TITLE</b></h1>
+<h1 style="font-size:55px;"><b>COVID-19 IR EVALUATOR</b></h1>
 <br>
 <hr>
 </big>
@@ -88,9 +85,11 @@ label,input{
 <!-- Start Border 1 -->
 
 <center>
-<h1 style="font-size:20px;"><b> Text1</b></h1> 
+<h1 style="font-size:20px;"><b> IR Evaluator</b></h1> 
 <hr style="width:165px;border:2px solid rgb(255, 174, 54)">
 <div class="center-justified"> 
+
+<br>
 
 <form action="{{ url_for('predict') }}" method = "post">
 <label for = "f1"> <input type="checkbox" name="model1" /> ann </label>
@@ -170,7 +169,6 @@ label,input{
 <label for = "f53"> <input type="checkbox" name="model53" /> udel </label>
 <label for = "f54"> <input type="checkbox" name="model54" /> vectors </label>
 <label for = "f55"> <input type="checkbox" name="model55" /> weights </label>
-<!--label for = "f56"> <input type="checkbox" name="model56" /> Score </label -->
 
 <br> 
 <p id="result">q</p>
@@ -200,8 +198,13 @@ document.getElementById("result").innerHTML = "{{result}}"
 <hr style="width:165px;border:2px solid rgb(255, 174, 54)">
 <div class="center-justified"> 
 
+<div class = "container">
 
-<img src={{ url_for('static', filename='Performance_.png') }} class = "center">
+<img class="img" src={{ url_for('static', filename='weight_importance.png') }}>
+<img class="img" src={{ url_for('static', filename='Performance_.png') }}>
+<img class="img" src={{ url_for('static', filename='roc_auc_rf.png') }}>
+
+</div>
 
 
 <br> 
@@ -216,12 +219,21 @@ document.getElementById("result").innerHTML = "{{result}}"
 <hr style="width:100%;border:7px solid rgb(255, 174, 74)">
 
 <center>
-<h1 style="font-size:20px;"><b>Weight Importance</b></h1> 
+<h1 style="font-size:20px;"><b>About the project</b></h1> 
 <hr style="width:165px;border:2px solid rgb(255, 174, 54)">
 <div class="center-justified"> 
 
+<br>
 
-<img src={{ url_for('static', filename='weight_importance.png') }} class = "center">
+<p class = "text"> The evaluator that is shown is a classifier model that is trained on TREC-COVID's results from each participants. TREC-COVI is an organised event that would liketo further the research on deployment of Information Retrieval (IR) system. This is done by organising competition (in Kaggle) or through volunteers where each participant then tries to provide the best IR system for solving certain question related to COVID, providing relevant information for the medical experts researching on the COVID matters.
+
+Our evaluator is trying to figure out whether a certain parameters, or use of different methods or tools would affect the result of the participant's IR system in any manner.
+
+Performance of the model shows sign of overfitting, but the issue is not too bad, testing still show relatively high performance of the model, in terms of log-loss, f1 and precision value. ROC curve shows that the model could vary quite significantly in result, in this case of 9%.
+
+Back to the result given however, it is shown that a IR system's performance is highly correlated to the use of ranking, bm (best matching), weights and e-ranking, all which suggests that IR system that uses ranking method one way of another would normally obtain better performance. Which would make sense considering that IR system and the current TREC-COVID challenge and research mainly uses ranking based evaluating metrics for evaluation of the performance of the IR.
+
+Either way, IR system that considers ranking seems to have quite a strong correlation with the outcome of their performance, based on the model that we obtained.</p>
 
 <br>
 <br>
@@ -230,25 +242,7 @@ document.getElementById("result").innerHTML = "{{result}}"
 
 <!-- End Border 3 -->
 
-<!-- Start Border 4 -->
-
-<hr style="width:100%;border:7px solid rgb(255, 174, 74)">
-
-<center>
-<h1 style="font-size:20px;"><b>ROC AUC</b></h1> 
-<hr style="width:165px;border:2px solid rgb(255, 174, 54)">
-
-<img src={{ url_for('static', filename='roc_auc_rf.png') }} class = "center">
-
-<br>
-<br>
-
-</center>
-
-
-<!-- End Border 4 -->
-
-  <!-- Footer -->   
+<!-- Footer -->   
 <style>
 .footer {
     background-color: rgb(255, 174, 54);

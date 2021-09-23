@@ -16,8 +16,6 @@ def index():
 def predict():
     if request.method == 'POST':
         lst = processList(getChecks())
-        print(lst)
-        print(len(lst))
         res = model.predict([lst])[0]
         return render_template('index.html', result = res)
     else:
