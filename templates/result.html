@@ -27,6 +27,11 @@ body {font-family: "Poppins", sans-serif}
 	    width : 500px;
 	}
 
+.graph { 
+		height: 700px;
+	    width : 900px;
+	}
+
 .text {
 	text-align: left;  
 	width:100%; 
@@ -138,6 +143,10 @@ ul {
 
 <br>
 
+
+<center><p>Please select at least one of the features below</p></center>
+
+<br>
 <!-- Start Input text -->
 <input type="text" id="myInput" onKeyUp="myFunction()" placeholder="Search for feature..">
 <!-- End Input text -->
@@ -210,13 +219,43 @@ ul {
 <li><label for = "f55"> <input type="checkbox" name="model55" /> Weightage </label></li>
 </ul>
 
-<br> 
-<center><p id="result" style="color:{{ txt_color }};">q</p></center>
 <br>
+<br>
+
+<center>
+<div style="background-color:#{{ color }};"><big>
+<br>
+<br>
+<br>
+<h1 style="font-size:55px;"><b>Your Model Performance: </b></h1>
+<h1 style="font-size:60px;" id = "result"></h1>
+<br>
+<hr>
+</big>
+</div></center>
+
+<center>
+<img class="graph" src="data:image/png;base64, {{ graph }}">
+</center>
+
+<center>
+<div style="background-color:rgb(255, 174, 74);"><big>
+<br>
+<br>
+<br>
+<h1 style="font-size:55px;"><b>Your Model Confidence: </b></h1>
+<h1 style="font-size:60px;" id = "confidence"></h1>
+<br>
+<hr>
+</big>
+</div></center>
+
 
 <input type="submit" value="Submit">
 
 </form>
+
+
 
 
 
@@ -267,11 +306,9 @@ function myFunction() {
 <script>
 
 document.getElementById("result").innerHTML = "{{result}}"
+document.getElementById("confidence").innerHTML = "{{confidence}}"
 
 </script>
-
-
-
 
 </center>
 
