@@ -72,6 +72,19 @@ label,input{
     text-align: center;
 	}
 
+.button {
+  background-color: rgb(255, 174, 74);
+  border: none;
+  color: white;
+  padding: 23px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
 
 * {
   box-sizing: border-box;
@@ -136,7 +149,7 @@ ul {
 <hr style="width:165px;border:2px solid rgb(255, 174, 54)">
 <div class="center-justified"> 
 
-<center><p>Please select at least one of the features below</p></center>
+<p>Please select at least one of the features below</p>
 
 <br>
 
@@ -216,7 +229,7 @@ ul {
 <center><p id="result" style="color:{{ txt_color }};">q</p></center>
 <br>
 
-<input type="submit" value="Submit">
+<center><input class="button" type="submit" value="Submit"></center>
 
 </form>
 
@@ -303,11 +316,11 @@ document.getElementById("result").innerHTML = "{{result}}"
 
 <br>
 
-<p class = "text"> Performance of the model shows sign of overfitting, but the issue is not too bad, testing still show relatively high performance of the model, in terms of log-loss, f1 and precision value. ROC curve shows that the model could vary quite significantly in result, in this case of 9%.
+<p class = "text"> Based on the performance of the model, we can see that our Random Forest classifier performs well in terms of precision value (high), F1-score (high) and Log-loss (low). Besides, the ROC curve shows that the model has obtained an AUC value of 0.87 which is considered high in this case.
 
-Back to the result given however, it is shown that a IR system's performance is highly correlated to the use of ranking, bm (best matching), weights and e-ranking, all which suggests that IR system that uses ranking method one way of another would normally obtain better performance. Which would make sense considering that IR system and the current TREC-COVID challenge and research mainly uses ranking based evaluating metrics for evaluation of the performance of the IR.
+Furthermore, it is shown that an IR system's performance is highly correlated to the use of ranking, bm, weights and e-ranking, all which suggests that an IR system that uses a ranking method one way or another would normally obtain better performance as compared to the use of other methods or algorithms. This would make sense considering that the IR system and the current TREC-COVID challenge and research mainly uses ranking based evaluating metrics for evaluation of the performance of the IR.
 
-Either way, IR system that considers ranking seems to have quite a strong correlation with the outcome of their performance, based on the model that we obtained.
+Nonetheless, the IR system that considers ranking as the algorithms used seems to have a strong correlation with the outcome of their performance in terms of retrieving relevant articles, based on the results obtained from our classification model.
 </p>
 
 <br>
@@ -337,9 +350,9 @@ Either way, IR system that considers ranking seems to have quite a strong correl
 
 <br>
 
-<p class = "text"> The evaluator that is shown is a classifier model that is trained on TREC-COVID's results from each participants. TREC-COVI is an organised event that would liketo further the research on deployment of Information Retrieval (IR) system. This is done by organising competition (in Kaggle) or through volunteers where each participant then tries to provide the best IR system for solving certain question related to COVID, providing relevant information for the medical experts researching on the COVID matters.
+<p class = "text"> TREC-COVID is an event organized by NIST to further the research and evaluate the capabilities of the Information Retrieval (IR) system. This is done by organising a competition in Kaggle or through volunteers where each participating teams involved will try to compete and provide the best IR system, each using a different set of methods and algorithms to retrieves relevant articles or documents based on the query given by a user for the medical experts researching on the COVID-19 matters.
 
-Our evaluator is trying to figure out whether a certain parameters, or use of different methods or tools would affect the result of the participant's IR system in any manner.
+The evaluator that is shown is a classifier model that is trained on TREC-COVID's results obtained from each participating team. Our evaluator is trying to figure out whether a certain parameter, or the usage of different methods or algorithms would affect the performance of an IR system.
 </p>
 
 <br>
