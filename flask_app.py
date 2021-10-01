@@ -22,7 +22,7 @@ def index():
 def predict():
     if request.method == 'POST':
         lst = getChecks()
-        
+        print(lst)
         if 1 not in lst:
             return render_template('index.html', result = "Please select 1 or more." , txt_color = "red")
         
@@ -39,7 +39,7 @@ def predict():
             color = "FF7F7F"
             res_txt = "Low Performance"
         
-        return render_template('result.html', result = res_txt, color = color, confidence = res[1], graph = res[2])
+        return render_template('result.html', result = res_txt, color = color, confidence = round(res[1],3), graph = res[2])
     else:
         return render_template('index.html')
 
@@ -75,6 +75,12 @@ def get_graph(input_list):
     fig = Figure()
     axis = fig.add_subplot(1, 1, 1)
     axis.barh(top_columns, top_columns_score)
+    axis.tick_params(
+        axis='x',          
+        which='both',      
+        bottom=False,      
+        top=False,         
+        labelbottom=False)
     axis.set_title("Feature Importance for RF model")
     
     fig.set_size_inches(12, 9)
