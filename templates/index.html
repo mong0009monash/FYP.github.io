@@ -1,6 +1,6 @@
 <html><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>Prediction in performance of Information retrieval system</title>
+<title>FYP</title>
 
 <link rel= "stylesheet" type= "text/css" href= {{url_for('static',filename='styles/w3.css')}}>
 
@@ -72,19 +72,6 @@ label,input{
     text-align: center;
 	}
 
-.button {
-  background-color: rgb(255, 174, 74);
-  border: none;
-  color: black;
-  padding: 23px 50px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
 
 * {
   box-sizing: border-box;
@@ -149,8 +136,6 @@ ul {
 <hr style="width:165px;border:2px solid rgb(255, 174, 54)">
 <div class="center-justified"> 
 
-<p>Please select at least one of the features below</p>
-
 <br>
 
 <!-- Start Input text -->
@@ -160,8 +145,8 @@ ul {
 <br>
 <br>
 
-<input type="submit" onClick="check_all()" value = "Select All">
-<input type="submit" onClick="uncheck_all()" value = "Unselect All">
+<input type="submit" onclick="check_all()" value = "Select All">
+<input type="submit" onclick="uncheck_all()" value = "Unselect All">
 
 <br>
 <br>
@@ -170,66 +155,58 @@ ul {
 <ul id="myUL">
 <li><label for = "f1" > <input type="checkbox" name="model1" /> Artificial Neural Network (ANN) </label></li>
 <li><label for = "f2"> <input type="checkbox" name="model2" /> Anserini </label></li>
-<li><label for = "f3"> <input type="checkbox" name="model3" /> Reciprocal Rank Fusion (RRF) </label></li>
-<li><label for = "f4"> <input type="checkbox" name="model4" /> Bayesian Network </label></li>
-<li><label for = "f5"> <input type="checkbox" name="model5" /> BERT </label></li>
-<li><label for = "f6"> <input type="checkbox" name="model6" /> BERT (Base) </label></li>
-<li><label for = "f7"> <input type="checkbox" name="model7" /> Best Matching (BM) </label></li>
-<li><label for = "f8"> <input type="checkbox" name="model8" /> Baseline </label></li>
-<li><label for = "f9"> <input type="checkbox" name="model9" /> Borda Count </label></li>
-<li><label for = "f10"> <input type="checkbox" name="model10" /> Continuous Active Learning (CAL) </label></li>
-<li><label for = "f11"> <input type="checkbox" name="model11" /> Classifier </label></li>
-<li><label for = "f12"> <input type="checkbox" name="model12" /> Dense Retreival Model </label></li>
-<li><label for = "f13"> <input type="checkbox" name="model13" /> SMART vector DFO </label></li>
-<li><label for = "f14"> <input type="checkbox" name="model14" /> Divergence From Randomness (DFR) </label></li>
-<li><label for = "f15"> <input type="checkbox" name="model15" /> LM Dirichlet </label></li>
-<li><label for = "f16"> <input type="checkbox" name="model16" /> DFR-DPH </label></li>
-<li><label for = "f17"> <input type="checkbox" name="model17" /> ELECTRA Model </label></li>
-<li><label for = "f18"> <input type="checkbox" name="model18" /> Ensemble </label></li>
-<li><label for = "f19"> <input type="checkbox" name="model19" /> F2EXP </label></li>
-<li><label for = "f20"> <input type="checkbox" name="model20" /> Fusion </label></li>
-<li><label for = "f21"> <input type="checkbox" name="model21" /> Bipartite-Graph-Trained SBERT </label></li>
-<li><label for = "f22"> <input type="checkbox" name="model22" /> Inverse Document Frequency (IDF) </label></li>
-<li><label for = "f23"> <input type="checkbox" name="model23" /> Indri </label></li>
-<li><label for = "f24"> <input type="checkbox" name="model24" /> Interpolation </label></li>
-<li><label for = "f25"> <input type="checkbox" name="model25" /> LambdaMART </label></li>
-<li><label for = "f26"> <input type="checkbox" name="model26" /> LambdaRANK </label></li>
-<li><label for = "f27"> <input type="checkbox" name="model27" /> Latent Dirichlet Allocation (LDA) </label></li>
-<li><label for = "f28"> <input type="checkbox" name="model28" /> Learning to Rank </label></li>
-<li><label for = "f29"> <input type="checkbox" name="model29" /> Lnu.Ltu </label></li>
-<li><label for = "f30"> <input type="checkbox" name="model30" /> Lucene </label></li>
-<!--li><label for = "f31"> <input type="checkbox" name="model31" /> Bayesian Network (Duplicate) </label></li-->
-<!--li><label for = "f32"> <input type="checkbox" name="model32" /> Nogueira (Person) </label></li-->
-<li><label for = "f33"> <input type="checkbox" name="model33" /> Non-stopwords </label></li>
-<li><label for = "f34"> <input type="checkbox" name="model34" /> Not Relevant (Nonrel) </label></li>
-<li><label for = "f35"> <input type="checkbox" name="model35" /> Normalization </label></li>
-<li><label for = "f36"> <input type="checkbox" name="model36" /> Pointwise </label></li>
-<!--li><label for = "f37"> <input type="checkbox" name="model37" /> Ponte (Person) </label></li-->
-<li><label for = "f38"> <input type="checkbox" name="model38" /> Pool Rank </label></li>
-<li><label for = "f39"> <input type="checkbox" name="model39" /> Probability Ranking Principle (PRP) </label></li>
-<li><label for = "f40"> <input type="checkbox" name="model40" /> Ranking </label></li>
-<li><label for = "f41"> <input type="checkbox" name="model41" /> Re-Ranking </label></li>
-<!--li style="font-size:14px"><label for = "f42"> <input type="checkbox" name="model42" /> Reciprocal Rank Fusion (RRF, duplicate) </label></li-->
-<li><label for = "f43"> <input type="checkbox" name="model43" /> SciBERT </label></li>
-<li><label for = "f44"> <input type="checkbox" name="model44" /> ScispaCy </label></li>
-<li><label for = "f45"> <input type="checkbox" name="model45" /> SofiaML </label></li>
-<li><label for = "f46"> <input type="checkbox" name="model46" /> Softmax </label></li>
-<!--li style="font-size:13px"><label for = "f47"> <input type="checkbox" name="model47" /> Reciprocal Rank Fusion (RRF, duplicate2) </label></li-->
-<li><label for = "f48"> <input type="checkbox" name="model48" /> Regression </label></li>
-<li><label for = "f49"> <input type="checkbox" name="model49" /> Term Frequency (TF) </label></li>
-<li><label for = "f50"> <input type="checkbox" name="model50" /> TF-Ranking </label></li>
-<li><label for = "f51"> <input type="checkbox" name="model51" /> TF-IDF </label></li>
-<li><label for = "f52"> <input type="checkbox" name="model52" /> Top-k </label></li>
-<li><label for = "f53"> <input type="checkbox" name="model53" /> UDel Query </label></li>
-<li><label for = "f54"> <input type="checkbox" name="model54" /> Vectors </label></li>
-<li><label for = "f55"> <input type="checkbox" name="model55" /> Weightage </label></li>
+<li><label for = "f3"> <input type="checkbox" name="model4" /> Bayesian Network </label></li>
+<li><label for = "f4"> <input type="checkbox" name="model5" /> Best Matching (BM) </label></li>
+<li><label for = "f5"> <input type="checkbox" name="model6" /> Baseline </label></li>
+<li><label for = "f6"> <input type="checkbox" name="model7" /> Borda Count </label></li>
+<li><label for = "f7"> <input type="checkbox" name="model8" /> Continuous Active Learning (CAL) </label></li>
+<li><label for = "f8"> <input type="checkbox" name="model9" /> Dense Retreival Model </label></li>
+<li><label for = "f9"> <input type="checkbox" name="model10" /> Classifier </label></li>
+<li><label for = "f10"> <input type="checkbox" name="model11" /> SMART vector DFO </label></li>
+<li><label for = "f11"> <input type="checkbox" name="model12" /> Divergence From Randomness (DFR) </label></li>
+<li><label for = "f12"> <input type="checkbox" name="model13" /> LM Dirichlet </label></li>
+<li><label for = "f13"> <input type="checkbox" name="model14" /> DFR-DPH </label></li>
+<li><label for = "f14"> <input type="checkbox" name="model15" /> ELECTRA Model </label></li>
+<li><label for = "f15"> <input type="checkbox" name="model16" /> Ensemble </label></li>
+<li><label for = "f16"> <input type="checkbox" name="model17" /> F2EXP </label></li>
+<li><label for = "f17"> <input type="checkbox" name="model18" /> Fusion </label></li>
+<li><label for = "f18"> <input type="checkbox" name="model19" /> Bipartite-Graph-Trained SBERT </label></li>
+<li><label for = "f19"> <input type="checkbox" name="model20" /> Indri </label></li>
+<li><label for = "f20"> <input type="checkbox" name="model21" /> Interpolation </label></li>
+<li><label for = "f21"> <input type="checkbox" name="model22" /> LambdaMART  </label></li>
+<li><label for = "f22"> <input type="checkbox" name="model23" /> LambdaRANK </label></li>
+<li><label for = "f23"> <input type="checkbox" name="model24" /> Latent Dirichlet Allocation (LDA) </label></li>
+<li><label for = "f24"> <input type="checkbox" name="model25" /> Learning to Rank </label></li>
+<li><label for = "f25"> <input type="checkbox" name="model26" /> Lnu.Ltu </label></li>
+<li><label for = "f26"> <input type="checkbox" name="model27" /> Lucene </label></li>
+<li><label for = "f27"> <input type="checkbox" name="model28" /> Non-stopwords </label></li>
+<li><label for = "f28"> <input type="checkbox" name="model29" /> Not Relevant (Nonrel) </label></li>
+<li><label for = "f29"> <input type="checkbox" name="model30" /> Normalization (Person) </label></li>
+<li><label for = "f30"> <input type="checkbox" name="model31" /> Pointwise </label></li>
+<li><label for = "f31"> <input type="checkbox" name="model32" /> Pool Rank </label></li>
+<li><label for = "f32"> <input type="checkbox" name="model33" /> Probability Ranking Principle (PRP) </label></li>
+<li><label for = "f33"> <input type="checkbox" name="model34" /> Ranking </label></li>
+<li><label for = "f34"> <input type="checkbox" name="model35" /> Re-Ranking </label></li>
+<li><label for = "f35"> <input type="checkbox" name="model36" /> SciBERT </label></li>
+<li><label for = "f36"> <input type="checkbox" name="model37" /> ScispaCy </label></li>
+<li><label for = "f37"> <input type="checkbox" name="model38" /> SofiaML </label></li>
+<li><label for = "f38"> <input type="checkbox" name="model39" /> Softmax </label></li>
+<li><label for = "f39"> <input type="checkbox" name="model40" /> Regression </label></li>
+<li><label for = "f40"> <input type="checkbox" name="model41" /> TF-Ranking </label></li>
+<li style="font-size:14px"><label for = "f41"> <input type="checkbox" name="model42" /> Top-k </label></li>
+<li><label for = "f42"> <input type="checkbox" name="model43" /> UDel Query </label></li>
+<li><label for = "f43"> <input type="checkbox" name="model44" /> Vectors </label></li>
+<li><label for = "f44"> <input type="checkbox" name="model45" /> Weightage </label></li>
+<li><label for = "f45"> <input type="checkbox" name="model46" /> Reciprocal Rank Fusion (RRF) </label></li>
+<li style="font-size:13px"><label for = "f46"> <input type="checkbox" name="model47" /> TF-IDF </label></li>
+<li><label for = "f47"> <input type="checkbox" name="model48" /> BERT </label></li>
 </ul>
 
 <br> 
 <center><p id="result" style="color:{{ txt_color }};">q</p></center>
 <br>
 
-<center><input class="button" type="submit" value="Submit"></center>
+<input type="submit" value="Submit">
 
 </form>
 
@@ -316,11 +293,11 @@ document.getElementById("result").innerHTML = "{{result}}"
 
 <br>
 
-<p class = "text">Based on the performance of the model, we can see that our Random Forest classifier performs well in terms of precision value (high), F1-score (high) and Log-loss (low). Besides, the ROC curve shows that the model has obtained an AUC value of 0.81 which is considered high in this case.
+<p class = "text"> Performance of the model shows sign of overfitting, but the issue is not too bad, testing still show relatively high performance of the model, in terms of log-loss, f1 and precision value. ROC curve shows that the model could vary quite significantly in result, in this case of 9%.
 
-Furthermore, it is shown that an IR system's performance is highly correlated to the use of bm, ranking, fusion, reciprocal, all which suggests that an IR system that uses a ranking method one way or another would normally obtain better performance as compared to the use of other methods or algorithms. This would make sense considering that the IR system and the current TREC-COVID challenge and research mainly uses ranking based evaluating metrics for evaluation of the performance of the IR.
+Back to the result given however, it is shown that a IR system's performance is highly correlated to the use of ranking, bm (best matching), weights and e-ranking, all which suggests that IR system that uses ranking method one way of another would normally obtain better performance. Which would make sense considering that IR system and the current TREC-COVID challenge and research mainly uses ranking based evaluating metrics for evaluation of the performance of the IR.
 
-Nonetheless, the IR system that considers ranking as the algorithms used seems to have a strong correlation with the outcome of their performance in terms of retrieving relevant articles, based on the results obtained from our classification model.
+Either way, IR system that considers ranking seems to have quite a strong correlation with the outcome of their performance, based on the model that we obtained.
 </p>
 
 <br>
@@ -350,9 +327,9 @@ Nonetheless, the IR system that considers ranking as the algorithms used seems t
 
 <br>
 
-<p class = "text">TREC-COVID is an event organized by NIST to further the research and evaluate the capabilities of the Information Retrieval (IR) system. This is done by organising a competition in Kaggle or through volunteers where each participating teams involved will try to compete and provide the best IR system, each using a different set of methods and algorithms to retrieves relevant articles or documents based on the query given by a user for the medical experts researching on the COVID-19 matters.
+<p class = "text"> The evaluator that is shown is a classifier model that is trained on TREC-COVID's results from each participants. TREC-COVI is an organised event that would liketo further the research on deployment of Information Retrieval (IR) system. This is done by organising competition (in Kaggle) or through volunteers where each participant then tries to provide the best IR system for solving certain question related to COVID, providing relevant information for the medical experts researching on the COVID matters.
 
-The evaluator that is shown is a classifier model that is trained on TREC-COVID's results obtained from each participating team. Our evaluator is trying to figure out whether a certain parameter, or the usage of different methods or algorithms would affect the performance of an IR system.
+Our evaluator is trying to figure out whether a certain parameters, or use of different methods or tools would affect the result of the participant's IR system in any manner.
 </p>
 
 <br>

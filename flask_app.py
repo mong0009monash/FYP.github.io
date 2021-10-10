@@ -6,13 +6,30 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 import numpy as np
 import io
 import base64
+import configparser
 
+config = configparser.ConfigParser()
+config.read("config.ini")
 
-app = Flask(__name__)
+try:
+    model_address = config.get("DEFAULT","modeladdress")
+    features_number = config.getint("DEFAULT","featuresnumber")
+    
+    app = Flask(__name__)
+    model = pickle.load(open(model_address,"rb"))
+    num_checkbox = features_number
+except:
+    app = Flask(__name__)
+    model = pickle.load(open("RFC.sav","rb"))
+    num_checkbox = 47
+    
+    config = configparser.ConfigParser()
+    config["DEFAULT"] = {"ModelAddress": "RFC.sav",
+                         "FeaturesNumber" : 47}
 
-model = pickle.load(open("RFC.sav","rb"))
+    with open("config.ini","w") as configfile:
+        config.write(configfile)
 
-num_checkbox = 55
 
 @app.route("/")
 def index():
@@ -22,7 +39,7 @@ def index():
 def predict():
     if request.method == 'POST':
         lst = getChecks()
-        print(lst)
+        
         if 1 not in lst:
             return render_template('index.html', result = "Please select 1 or more." , txt_color = "red")
         
@@ -45,15 +62,14 @@ def predict():
 
 
 def get_graph(input_list):
-    columns = ['ann', 'anserini', 'rrf', 'bayesian', 'bert', 'bert-base', 'bm',
-           'baseline', 'borda', 'cal', 'classifier', 'dense', 'dfo', 'dfr',
-           'dirichlet', 'dph', 'electra', 'ensemble', 'f2exp', 'fusion', 'hybrid',
-           'idf', 'indri', 'interpolation', 'lambdamart', 'lambdarank', 'lda',
-           'learning-to-rank', 'lnu.ltu', 'lucene', 'networks', 'nogueira',
-           'non-stopwords', 'nonrel', 'normalization', 'pointwise', 'ponte',
-           'pool rank', 'prf', 'ranking', 're-ranking', 'rrf.1', 'scibert',
-           'scispacy', 'sofiaml', 'softmax', 'reciprocal-rank', 'regression', 'tf',
-           'tf-ranking', 'tf-idf', 'top-k', 'udel', 'vectors', 'weights']
+    columns = ['ann', 'anserini', 'bayesian', 'bm', 'baseline', 'borda', 'cal',
+       'classifier', 'dense', 'dfo', 'dfr', 'dirichlet', 'dph', 'electra',
+       'ensemble', 'f2exp', 'fusion', 'hybrid', 'indri', 'interpolation',
+       'lambdamart', 'lambdarank', 'lda', 'learning-to-rank', 'lnu.ltu',
+       'lucene', 'non-stopwords', 'nonrel', 'normalization', 'pointwise',
+       'pool rank', 'prf', 'ranking', 're-ranking', 'scibert', 'scispacy',
+       'sofiaml', 'softmax', 'regression', 'tf-ranking', 'top-k', 'udel',
+       'vectors', 'weights', 'reciprocal', 'tf_idf', 'BERT']
     feature_importance = model.best_estimator_.feature_importances_
     
     filtered_col = []
@@ -105,7 +121,7 @@ def getChecks():
             lst.append(1)
         else:
             lst.append(0)
-    
+
     return lst
 
 
