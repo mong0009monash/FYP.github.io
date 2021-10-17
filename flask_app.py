@@ -13,19 +13,19 @@ config.read("config.ini")
 
 try:
     model_address = config.get("DEFAULT","modeladdress")
-    features_number = config.getint("DEFAULT","featuresnumber")
+    features_number = config.getint("DEFAULT","checkboxnumber")
     
     app = Flask(__name__)
     model = pickle.load(open(model_address,"rb"))
     num_checkbox = features_number
 except:
-    app = Flask(__name__)
+    app = Flask(__name__)   
     model = pickle.load(open("RFC.sav","rb"))
     num_checkbox = 47
     
     config = configparser.ConfigParser()
     config["DEFAULT"] = {"ModelAddress": "RFC.sav",
-                         "FeaturesNumber" : 47}
+                         "CheckboxNumber" : 47}
 
     with open("config.ini","w") as configfile:
         config.write(configfile)
